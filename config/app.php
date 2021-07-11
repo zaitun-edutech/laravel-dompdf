@@ -166,7 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Intervention\Image\ImageServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -231,6 +231,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Flash' => Laracasts\Flash\Flash::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];

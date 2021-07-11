@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,9 @@ Route::get('/', function () {
     return view('salam');
 });
 
-Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index']);
-Route::get('/blog/cetak_pdf', [App\Http\Controllers\BlogController::class, 'cetak_pdf']);
+Route::get('/blog', [BlogController::class, 'index']);
+Route::get('/blog/cetak_pdf', [BlogController::class, 'cetak_pdf']);
+Route::get('/show/{id}', [BlogController::class, 'show']);
 
 
 
@@ -31,3 +33,6 @@ Auth::routes();
 
 Route::resource('siswas', App\Http\Controllers\SiswaController::class);
 
+
+
+Route::resource('products', App\Http\Controllers\ProductController::class);

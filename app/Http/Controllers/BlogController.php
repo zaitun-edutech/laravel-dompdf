@@ -12,11 +12,20 @@ public function index()
 {
     $siswa = Siswa::get();
 
-    return view('blog',['siswa'=>$siswa]);
+    return view('blog')->with([
+        'siswa'=>$siswa
+    ]);
+}
+public function show($id)
+{
+    $data = Siswa::findOrFail($id);
+    return view('show')->with([
+        'siswa'=>$data
+    ]);
 }
 
 public function cetak_pdf(){
-    $siswa = Siswa::get();
+    $siswa = Siswa::all();
 
     $pdf = PDF::loadview('blog',['siswa'=>$siswa]);
     	return $pdf->download('data-siswa.pdf');
